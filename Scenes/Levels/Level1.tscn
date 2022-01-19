@@ -7,7 +7,7 @@
 [node name="Level1" type="Node2D"]
 
 [node name="PixelMan" parent="." instance=ExtResource( 2 )]
-position = Vector2( 13.9113, 15.2748 )
+position = Vector2( 14.016, 14.7982 )
 collision_mask = 0
 
 [node name="Background" type="Node2D" parent="."]
@@ -26,7 +26,7 @@ __meta__ = {
 }
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 0, 0.31 )
+position = Vector2( 0, -0.034 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 10, 10 )
 collision_layer = 2
