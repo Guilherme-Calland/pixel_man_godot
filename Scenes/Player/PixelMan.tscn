@@ -23,7 +23,7 @@ animations = [ {
 "name": "jump",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
 "speed": 4.0
@@ -44,7 +44,7 @@ extents = Vector2( 1.97097, 3.97049 )
 
 [node name="PixelMan" type="KinematicBody2D"]
 script = ExtResource( 5 )
-jumpForce = 32
+jumpForce = 24
 gravity = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -53,9 +53,8 @@ animation = "jump"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -0.0460701, 0.460697 )
-scale = Vector2( 0.963, 1.107 )
+scale = Vector2( 0.963, 1.167 )
 shape = SubResource( 2 )
 
 [node name="Input" type="Node2D" parent="."]

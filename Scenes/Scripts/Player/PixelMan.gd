@@ -15,10 +15,11 @@ func _ready():
 func _process(delta):
 	$Movement.move(inputs, speed, jumpForce, gravity, is_on_floor())
 	$Animation.animate(inputs, $AnimatedSprite, is_on_floor())
-	
+
 func retrieveInputs(i):
 	inputs = i
 
 func retrieveMovements(m):
 	motion = m
 	move_and_slide(motion, up)
+ 

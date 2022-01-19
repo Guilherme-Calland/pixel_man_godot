@@ -21,10 +21,6 @@ func move(inputs, speed, jumpForce, gravity, isOnFloor):
 		motion.x = 0
 	
 	if isOnFloor:
-		if motion.y < 0:
-			isOnFloor = false
-##
-	if isOnFloor:
 		motion.y = gravity
 		if jump:
 			motion.y = -jumpForce
