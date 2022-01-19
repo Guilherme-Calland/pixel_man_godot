@@ -16,7 +16,7 @@ func _process(delta):
 	elif Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
 		inputs["left"] = true
 	
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		inputs["jump"] = true
 	elif Input.is_action_pressed("grab"):
 		inputs["grab"] = true
