@@ -18,6 +18,11 @@ animations = [ {
 "name": "idle",
 "speed": 2.0
 }, {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "grab",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "jump",
@@ -28,11 +33,6 @@ animations = [ {
 "name": "walk",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": false,
-"name": "grab",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,
 "name": "touch",
@@ -40,7 +40,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 1.97097, 3.97049 )
+extents = Vector2( 2.18136, 3.97049 )
 
 [node name="PixelMan" type="KinematicBody2D"]
 script = ExtResource( 5 )
@@ -53,8 +53,9 @@ animation = "jump"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.0460701, 0.460697 )
-scale = Vector2( 0.963, 1.167 )
+visible = false
+position = Vector2( 0, 1.492 )
+scale = Vector2( 0.918, 0.883 )
 shape = SubResource( 2 )
 
 [node name="Input" type="Node2D" parent="."]
