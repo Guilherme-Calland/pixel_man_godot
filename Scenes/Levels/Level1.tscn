@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Graphics/Scenary/background_1.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player/PixelMan.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Scripts/Levels/Level1.gd" type="Script" id=4]
+[ext_resource path="res://Graphics/Scenary/background_2.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Objects/PurpleBox.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.05234, 110.216 )
@@ -15,21 +17,43 @@ extents = Vector2( 1.65246, 15.2153 )
 script = ExtResource( 4 )
 
 [node name="PixelMan" parent="." instance=ExtResource( 2 )]
-position = Vector2( 10.3053, 12.9651 )
+position = Vector2( 11.3047, 13.4265 )
 collision_mask = 0
 
+[node name="Camera2D" type="Camera2D" parent="PixelMan"]
+position = Vector2( 10.2192, -1.3861 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
 [node name="Background" type="Node2D" parent="."]
+position = Vector2( 0, -1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-motion_mirroring = Vector2( 40, 0 )
+motion_mirroring = Vector2( 48, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer"]
-margin_top = -1.80995
-margin_right = 48.0
-margin_bottom = 38.1901
+margin_left = -0.104675
+margin_top = -0.80995
+margin_right = 47.8953
+margin_bottom = 39.1901
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2( 0, -1 )
+motion_mirroring = Vector2( 48, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer2"]
+margin_left = -0.104675
+margin_top = -24.8099
+margin_right = 47.8953
+margin_bottom = 15.1901
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,10 +66,6 @@ collision_layer = 2
 format = 1
 tile_data = PoolIntArray( 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 20.5245, 11.579 )
-current = true
-
 [node name="NewAreaTrigger" type="Area2D" parent="."]
 position = Vector2( 40, 13.522 )
 collision_layer = 0
@@ -54,6 +74,7 @@ collision_layer = 0
 rotation = 1.5708
 scale = Vector2( -12.759, 0.015 )
 shape = SubResource( 1 )
+disabled = true
 one_way_collision = true
 
 [node name="PreviousAreaTrigger" type="Area2D" parent="."]
@@ -64,6 +85,10 @@ position = Vector2( 1.344, 12.882 )
 rotation = -1.5708
 scale = Vector2( 8.037, 0.1 )
 shape = SubResource( 2 )
+disabled = true
 one_way_collision = true
+
+[node name="PurpleBox" parent="." instance=ExtResource( 6 )]
+position = Vector2( 54.7435, 16.1679 )
 [connection signal="body_entered" from="NewAreaTrigger" to="." method="_on_Area2Trigger_body_entered"]
 [connection signal="body_entered" from="PreviousAreaTrigger" to="." method="_on_PreviousAreaTrigger_body_entered"]
