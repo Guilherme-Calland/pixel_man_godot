@@ -3,7 +3,7 @@
 [ext_resource path="res://Graphics/Scenary/background_1.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player/PixelMan.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=3]
-[ext_resource path="res://Scenes/Scripts/Levels/Level1.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Levels/Level1.gd" type="Script" id=4]
 [ext_resource path="res://Graphics/Scenary/background_2.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Objects/PurpleBox.tscn" type="PackedScene" id=6]
 
@@ -17,8 +17,12 @@ extents = Vector2( 1.65246, 15.2153 )
 script = ExtResource( 4 )
 
 [node name="PixelMan" parent="." instance=ExtResource( 2 )]
-position = Vector2( 11.3047, 13.4265 )
+position = Vector2( 11.3047, 14.9265 )
 collision_mask = 0
+collision/safe_margin = 1.0
+speed = 10
+jumpForce = 64
+gravity = 10
 
 [node name="Camera2D" type="Camera2D" parent="PixelMan"]
 position = Vector2( 10.2192, -1.3861 )
@@ -59,12 +63,12 @@ __meta__ = {
 }
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 0, -1.477 )
+position = Vector2( 0, -1 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 10, 10 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0 )
+tile_data = PoolIntArray( 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0 )
 
 [node name="NewAreaTrigger" type="Area2D" parent="."]
 position = Vector2( 40, 13.522 )
@@ -89,6 +93,12 @@ disabled = true
 one_way_collision = true
 
 [node name="PurpleBox" parent="." instance=ExtResource( 6 )]
-position = Vector2( 54.7435, 16.1679 )
+position = Vector2( 28.7844, 16.9265 )
+
+[node name="PurpleBox2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 28.7844, 8.9265 )
+
+[node name="PurpleBox3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 28.7844, 12.9265 )
 [connection signal="body_entered" from="NewAreaTrigger" to="." method="_on_Area2Trigger_body_entered"]
 [connection signal="body_entered" from="PreviousAreaTrigger" to="." method="_on_PreviousAreaTrigger_body_entered"]
